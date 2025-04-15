@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Car Price Predictor</title>
+    <!-- Google Fonts for a modern look -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+    <link rel="stylesheet" href="styles.css" />
+    
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.153.0/build/three.module.js"
+      }
+    }
+    </script>
+  </head>
+<body>
+      <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <i class="fa fa-car-side"></i>
+        <span>CarPricePredictor</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      
+      <!-- Search Box for Car Model Selection -->
+      <div class="search-container">
+        <input type="text" id="carSearch" placeholder="Search for a car..." autocomplete="off">
+        <button id="searchBtn"><i class="fa fa-search"></i></button>
+        <div id="suggestions" class="suggestions-box"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION (Smaller) -->
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <h1>Get Your Car Price Instantly</h1>
+      <p>Enter details, predict costs, and compare currencies in real time.</p>
+      <a href="#mainContent" class="btn-hero">Get Started</a>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div id="mainContent" class="main-container">
+    <!-- Left Panel: 3D Car Model -->
+    <div class="left-panel">
+      <div id="car3dContainer"></div>
+    </div>
+
+    <!-- Right Panel: Car Form & Price -->
+    <div class="right-panel">
+      <div class="card">
+        <h2>Enter Car Details</h2>
+        <form id="carForm">
+          <!-- Brand -->
+          <label for="brand">Brand</label>
+          <input type="text" id="brand" name="brand" placeholder="e.g. Hyundai, Mahindra" required />
+
+          <!-- Mileage -->
+          <label for="mileage">Mileage (km/l or mpg)</label>
+          <input type="number" id="mileage" name="mileage" placeholder="Enter mileage" required />
+
+          <!-- Fuel Type -->
+          <label for="fuelType">Fuel Type</label>
+          <select id="fuelType" name="fuelType" required>
+            <option value="0">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="2">CNG</option>
+            <option value="3">Electric</option>
+          </select>
+
+          <!-- Engine Size -->
+          <label for="engine">Engine Size (L)</label>
+          <input type="number" id="engine" name="engine" placeholder="e.g., 2.0" required />
+
+          <!-- Transmission -->
+          <label for="transmission">Transmission</label>
+          <select id="transmission" name="transmission" required>
+            <option value="1">Automatic</option>
+            <option value="0">Manual</option>
+          </select>
+
+          <!-- Accident History -->
+          <label for="accident">Accident History</label>
+          <select id="accident" name="accident" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+
+          <!-- Clean Title -->
+          <label for="cleanTitle">Clean Title</label>
+          <select id="cleanTitle" name="cleanTitle" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+
+          <!-- Predict Button -->
+          <button type="submit" class="btn-primary">Predict Price</button>
+        </form>
+
+        <!-- Price Display & Currency Converter -->
+        <div class="price-section">
+          <p>Price: <span id="convertedPrice">--</span> <span id="convertedCurrency">INR</span></p>
+          <p>(Base Price: <span id="basePrice">--</span> INR)</p>
+          <label for="currencySelect">Change Currency:</label>
+          <select id="currencySelect">
+            <option value="INR" selected>₹ (INR)</option>
+            <option value="USD">$ (USD)</option>
+            <option value="EUR">€ (EUR)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" class="info-section">
+    <h2>Features</h2>
+    <p>
+      Our Car Price Predictor uses advanced machine learning algorithms to give you a near-accurate price 
+      estimate for your used car. You can also rotate and view a 3D car model, compare currency rates, and 
+      search for popular models in our database.
+    </p>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="info-section">
+    <h2>About</h2>
+    <p>
+      This project aims to provide a user-friendly platform for car enthusiasts and potential buyers 
+      to get quick, reliable price estimates for used vehicles. Developed using HTML, CSS, JavaScript, 
+      Python (Flask), and Three.js for the 3D model.
+    </p>
+  </section>
+
+  <!-- Scripts -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
